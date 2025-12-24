@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+
+models/
+*.safetensors
+*.bin
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Model files (if large)
+# models/t5_summarizer_model/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+

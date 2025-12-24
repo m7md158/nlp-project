@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Summarization | T5 Model</title>
+    
+    <!-- Google Fonts: Inter for modern, clean typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Main container with modern card-style layout -->
+    <div class="container">
+        <!-- Header section with gradient background -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">
+                    <span class="icon">📝</span>
+                    AI Text Summarization
+                </h1>
+                <p class="subtitle">Powered by Fine-tuned T5 Transformer Model</p>
+            </div>
+        </header>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            <!-- Input section card -->
+            <section class="card input-card">
+                <div class="card-header">
+                    <h2 class="section-title">Enter Text to Summarize</h2>
+                    <p class="section-description">Paste or type your dialogue, article, or text content below</p>
+                </div>
+                
+                <div class="card-body">
+                    <!-- Text input area -->
+                    <div class="form-group">
+                        <label for="input-text" class="form-label">Input Text</label>
+                        <textarea 
+                            id="input-text" 
+                            class="text-input"
+                            placeholder="Example:&#10;Hannah: Hey, do you have Betty's number?&#10;Amanda: Lemme check&#10;Amanda: Sorry, can't find it.&#10;&#10;Hannah: Alright, no worries. I'll ask her directly when I see her tomorrow."
+                            rows="10"
+                        ></textarea>
+                        <div class="input-footer">
+                            <span class="char-count" id="char-count">0 characters</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Parameters controls -->
+                    <div class="controls-grid">
+                        <div class="form-group">
+                            <label for="min-length" class="form-label">Minimum Length</label>
+                            <input 
+                                type="number" 
+                                id="min-length" 
+                                class="number-input"
+                                value="40" 
+                                min="1" 
+                                max="200"
+                            >
+                            <span class="input-hint">Tokens (1-200)</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="max-length" class="form-label">Maximum Length</label>
+                            <input 
+                                type="number" 
+                                id="max-length" 
+                                class="number-input"
+                                value="150" 
+                                min="10" 
+                                max="512"
+                            >
+                            <span class="input-hint">Tokens (10-512)</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Action button with loading state -->
+                    <button id="summarize-btn" class="btn-primary" onclick="summarizeText()">
+                        <span id="btn-text">Generate Summary</span>
+                        <span id="btn-loader" class="spinner" style="display: none;"></span>
+                        <span id="btn-loading-text" class="btn-loading-text" style="display: none;">Summarizing...</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Output section card with animation -->
+            <section class="card output-card" id="output-card">
+                <div class="card-header">
+                    <h2 class="section-title">Generated Summary</h2>
+                    <p class="section-description">Your summary will appear here</p>
+                </div>
+                
+                <div class="card-body">
+                    <!-- Output text area -->
+                    <div id="output-text" class="output-text output-placeholder">
+                        Your summary will appear here...
+                    </div>
+                    
+                    <!-- Error message container -->
+                    <div id="error-message" class="error-alert" role="alert" style="display: none;">
+                        <span class="error-icon">⚠️</span>
+                        <span class="error-text"></span>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        
+    </div>
+
+    <!-- JavaScript file -->
+    <script src="/static/script.js"></script>
+</body>
+</html>
